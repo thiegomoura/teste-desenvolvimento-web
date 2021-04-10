@@ -53,7 +53,7 @@ export default class Pokemon {
     @Column()
     sta: number;
 
-    @Column()
+    @Column('boolean', {default: true})
     legendary: boolean;
 
     @Column()
@@ -92,9 +92,9 @@ export default class Pokemon {
     @Column()
     percent100cp39: number;
 
-    @Column()
+    @Column('date', {default: Date.now()})
     created_at: Date;
 
-    @Column()
+    @Column('date', {default: Date.now()})
     updated_at: Date;
 }

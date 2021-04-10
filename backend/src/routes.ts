@@ -3,23 +3,15 @@ import PokemonController from './controllers/PokemonController';
 
 const routes = Router()
 
-//default
 routes.get('/', (req, res) => {
-    return res.json({ message: 'Hello world!' });
+    return res.json({ message: 'Pokemons!' });
 });
 
-//list all
 routes.get('/pokemons', PokemonController.index);
-//list one
 routes.get('/pokemons/:id', PokemonController.show);
-//create
-routes.post('/pokemons',PokemonController.create);
-//search
-routes.get('/pokemons/:id', (req, res) => { });
-//update
-routes.put('/pokemons/:id', (req, res) => { });
-//delete
-routes.delete('/pokemons/:id', (req, res) => { });
+routes.post('/pokemons', PokemonController.create);
+routes.put('/pokemons/:id', PokemonController.update);
+routes.delete('/pokemons/:id', PokemonController.delete);
 
 
 export default routes;
