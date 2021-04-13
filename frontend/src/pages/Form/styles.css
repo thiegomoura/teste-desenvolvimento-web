@@ -1,3 +1,7 @@
 form {
     max-width: 920px;
 }
+
+.go-back::before {
+    content: '< ';
+}
