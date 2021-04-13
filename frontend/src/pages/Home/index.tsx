@@ -8,13 +8,14 @@ import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 import api from "../../service/api";
 import './styles.css';
+import { spawn } from 'node:child_process';
 
 const Index = () => {
     const [pokemons, setPokemons] = useState([]);
     useEffect(() => {
         api.get('/pokemons')
             .then(res => {
-                setPokemons(res.data);
+                // setPokemons(res.data);
             })
             .catch(err => {
                 console.log("Backend unavaliable!")
@@ -71,6 +72,7 @@ const Index = () => {
                                     data={pokemons}
                                     columns={columns}
                                     filter={filterFactory()}
+                                    noDataIndication={"Not records found!"}
                                     pagination={paginationFactory({})}
                                 />
                             </div>
